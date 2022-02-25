@@ -1,0 +1,20 @@
+module IsobaricQuant {
+    requires javafx.graphics;
+    requires javafx.fxml;
+    requires javafx.controls;
+    requires java.xml;
+    requires java.logging;
+    requires org.controlsfx.controls;
+    requires javafx.web;
+    requires jdk.jsobject;
+    requires commons.math3;
+    //requires commons.cli;
+    requires com.google.gson;
+    requires VillenInputs.all;
+    requires org.json;
+    requires java.desktop;
+    requires commons.cli;
+
+
+    exports  edu.uw.villenlab.isobaricquant;
+}

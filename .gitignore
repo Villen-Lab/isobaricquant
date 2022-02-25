@@ -1,0 +1,10 @@
+### Java ###
+bin/*
+
+### Gradle ###
+
+build/*
+.gradle/*
+
+### IDE ###
+.idea/*

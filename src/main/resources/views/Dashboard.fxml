@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.uw.villenlab.isobaricquant.controllers.DashboardController">
+    <children>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="411.0" prefWidth="977.0" VBox.vgrow="ALWAYS">
+            <children>
+                <ProgressBar fx:id="progressBar" layoutY="352.0" prefHeight="18.0" prefWidth="660.0" progress="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                <TextField fx:id="configPathInput" layoutX="102.0" layoutY="40.0" prefHeight="25.0" prefWidth="325.0" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="40.0" />
+                <TextField fx:id="configHitsInput" layoutX="102.0" layoutY="76.0" prefHeight="25.0" prefWidth="325.0" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="76.0" />
+                <TextField fx:id="configMzInput" layoutX="102.0" layoutY="112.0" prefHeight="25.0" prefWidth="325.0" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="112.0" />
+                <Button fx:id="configBrowse" layoutX="449.0" layoutY="40.0" mnemonicParsing="false" onAction="#fileChooser" text="Browse" AnchorPane.leftAnchor="449.0" AnchorPane.topAnchor="40.0" />
+                <Button fx:id="hitsBrowse" layoutX="449.0" layoutY="76.0" mnemonicParsing="false" onAction="#fileChooser" text="Browse" AnchorPane.leftAnchor="449.0" AnchorPane.topAnchor="76.0" />
+                <Button fx:id="mzBrowse" layoutX="449.0" layoutY="112.0" mnemonicParsing="false" onAction="#fileChooser" text="Browse" AnchorPane.leftAnchor="449.0" AnchorPane.topAnchor="112.0" />
+                <Label layoutX="16.0" layoutY="44.0" text="Config File:" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="44.0" />
+                <Label layoutX="16.0" layoutY="80.0" text="Hits File:" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="80.0" />
+                <Label layoutX="18.0" layoutY="116.0" text="Mz File:" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="116.0" />
+                <Button layoutX="16.0" layoutY="348.0" mnemonicParsing="false" onAction="#guiQuantify" text="Quantify" AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="562.0" />
+                <TextArea fx:id="logTextArea" layoutX="16.0" layoutY="120.0" prefHeight="219.0" prefWidth="613.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="160.0" />
+                <Button fx:id="viewResultsBtn" layoutX="87.0" layoutY="348.0" mnemonicParsing="false" onAction="#openResultsView" text="View Peptides" AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="462.0" />
+                <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem fx:id="saveResultsMenuItem" mnemonicParsing="false" onAction="#saveResultsLocationChooser" text="Save" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Tools">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#openProjectChooser" text="Viewer" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>

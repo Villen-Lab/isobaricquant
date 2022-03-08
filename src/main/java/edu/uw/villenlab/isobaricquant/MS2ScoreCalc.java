@@ -388,7 +388,7 @@ public class MS2ScoreCalc {
             Collections.sort(peaksFI, PeakFi.comparatorByDescIntensity);
 
             // at this point we only need to calculate the scores related to the topX
-            for (int i = 0; i < topX; ++i) {
+            for (int i = 0; i < topX && i < peaksFI.size(); ++i) {
                 pfi = peaksFI.get(i);
                 topXIntensity += pfi.intensity;
                 if (pfi.isBorYFragmentIon()) {

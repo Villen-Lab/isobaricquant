@@ -2,7 +2,7 @@
 
 ## Getting started
 
-Download [latest version](https://gitlab.com/public_villenlab/isobaricquant/-/releases/v1.0.0)
+Download [latest version](https://github.com/Villen-Lab/isobaricquant/releases/download/v1.0.1/IsobaricQuant_WIN.jar)
 
 ### Requirements
 

@@ -38,6 +38,6 @@ Or it can be used via command line:
 
 For file input and output description please refer to the documentation:
 
-[How to run IsobaricQuant](https://isobaricquant.readthedocs.io/en/latest/#io_files)
+[How to run IsobaricQuant](https://isobaricquant.readthedocs.io/en/latest/#how-to-run-isobaricquant)
 
     

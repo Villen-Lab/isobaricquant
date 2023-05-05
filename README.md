@@ -40,4 +40,16 @@ For file input and output description please refer to the documentation:
 
 [How to run IsobaricQuant](https://isobaricquant.readthedocs.io/en/latest/#how-to-run-isobaricquant)
 
-    
+## Documentation Update: Using msconvert with Docker for IsobaricQuant
+
+In order to properly process your data with IsobaricQuant, you will need to generate an mzML file from your raw mass spectrometry data file. This can be achieved using ProteoWizard's msconvert tool, which is available as a Docker image. This guide will walk you through the process of using the msconvert Docker image to convert your raw data file into an mzML file.
+
+### Prerequisites
+
+1. Install [Docker](https://docs.docker.com/get-docker/) if you haven't already.
+2. Ensure you have the raw mass spectrometry data file(s) that you want to convert.
+
+### Step-by-Step Guide
+
+1. Pull the msconvert Docker image:
+

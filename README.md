@@ -40,4 +40,55 @@ For file input and output description please refer to the documentation:
 
 [How to run IsobaricQuant](https://isobaricquant.readthedocs.io/en/latest/#how-to-run-isobaricquant)
 
+## Documentation Update: Using msconvert with Docker for IsobaricQuant
+
+In order to properly process your data with IsobaricQuant, you will need to generate an mzML file from your raw mass spectrometry data file. This can be achieved using ProteoWizard's msconvert tool, which is available as a Docker image. This guide will walk you through the process of using the msconvert Docker image to convert your raw data file into an mzML file.
+
+### Prerequisites
+
+1. Install [Docker](https://docs.docker.com/get-docker/) if you haven't already.
+2. Ensure you have the raw mass spectrometry data file(s) that you want to convert.
+
+### Step-by-Step Guide
+
+1. Pull the msconvert Docker image:
+    ```
+    docker pull chambm/pwiz-skyline-i-agree-to-the-vendor-licenses
+    ```
+    This command downloads the Docker image containing msconvert and its dependencies.
+
+2. Create a directory to store the mzML output files:
+    ```
+    mkdir output
+    ```
+    
+    This will create a new directory named "output" in your current directory, where the converted mzML files will be stored.
+
+3. Run the msconvert Docker container to convert your raw file:
+    ```
+    sudo docker run -it --rm -e WINEDEBUG=-all -v /path/to/your/raw/files:/data -v /path/to/output/directory:/output chambm/pwiz-skyline-i-agree-to-the-vendor-licenses wine msconvert /data/your_raw_file.raw --mzML --simAsSpectra --32 --zlib --filter "peakPicking true 1-" --filter "zeroSamples removeExtra" -o /output --outfile your_mzML_file.mzML
+    ```
+
+Replace `/path/to/your/raw/files` with the path to the directory containing your raw mass spectrometry data files, and `/path/to/output/directory` with the path to the "output" directory you created in step 2. Replace `your_raw_file.raw` with the name of your raw file.
+
+This command will run the Docker container, mount the appropriate input and output directories, and execute msconvert with the specified filters and options. The generated mzML file will be saved in the "output" directory with the name `your_mzML_file.mzML`.
+
+### Notes on the msconvert Filters and Options
+
+The following filters and options are recommended for use with IsobaricQuant:
+
+- `--mzML`: This option specifies that the output file format should be mzML.
+- `--simAsSpectra`: This option ensures that selected ion monitoring (SIM) scans are treated as spectra.
+- `--32`: This option sets the output file's binary encoding to 32-bit.
+- `--zlib`: This option compresses the output file using zlib.
+- `--filter "peakPicking true 1-"`: This filter performs peak picking on the data, retaining only the most intense peaks.
+- `--filter "zeroSamples removeExtra"`: This filter removes zero-intensity samples, reducing the size of the mzML file.
+
+You can modify these filters or options based on your specific requirements. For a comprehensive list of available filters and their descriptions, consult the [ProteoWizard documentation](http://proteowizard.sourceforge.net/tools/filters.html).
+
+After generating the mzML file(s), you can proceed with the IsobaricQuant workflow as outlined in the repository's documentation.
+
+
+
+
     
